@@ -15,11 +15,11 @@ class CreateTextsTable extends Migration
     {
         Schema::create('texts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title','50');
-            $table->timestamps('date');
+            $table->string('title',50);
             $table->integer('open');  
-            $table->string('password','6')->nullable();
-            $table->string('comment','100')->nullable(); 
+            $table->string('password',6)->nullable();
+            $table->string('comment',100)->nullable();
+            $table->timestamps(); 
         });
     }
 

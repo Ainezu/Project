@@ -1,5 +1,7 @@
 <?php
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\firstController;
+use App\Http\Controllers\secondController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +15,15 @@ use App\Http\Controllers\firstController;
 */
 
 //Route::送信方法('URL',[使用するｺﾝﾄﾛｰﾗｰ::class, 'ﾒｿｯﾄﾞ(処理)名'])
+
+//ログイン関連のルーティングの呼び出し
+Auth::routes();
+
+//home画面
 Route::get('/',[firstController::class,'index']);
+
+Route::get('/search',[secondController::class,'indication'])->name('indication.search');
+
+Route::get('/detail',[secondController::class,'browsing'])->name('browsing.detail');
+
+Route::get('/userpage',[secondController::class,'userdate'])->name('userdate.edit');

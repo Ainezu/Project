@@ -1,0 +1,231 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css);
+
+#id{
+    max-width: 1200px;
+}
+html{
+    height: 100%;
+}
+/*--共通部分：ヘッダー--*/
+.header{
+    background-color: lightslategray;
+    display: flex;
+    width: 100%;
+}
+.img {
+    margin: 1.5%;
+}
+.my-navbar-control{
+    width: 15%;
+    margin-left: 75%;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/*login*/
+.login{
+    max-width: 1200px;
+    margin: auto;  
+}
+.text-center{
+    padding-top: 5%;
+}
+.view-text{
+    margin-top: 2%;
+}
+/*register*/
+label{
+    width: 10%;
+}
+/*--home--*/
+.search {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+.search-form{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search-word{
+    margin-right: 2%;
+}
+.main-view{
+    display: flex;
+    height: 70%;
+}
+.main{
+    width: 90%;
+    display: flex;
+}
+.main-container {
+    background-color: antiquewhite;
+    border: double 7px darksalmon;
+    width: 90%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    border-bottom-right-radius: 10%;
+    margin-left: 3%;
+}
+.box-1{
+    width: 20%;
+    height: 35%;
+    border: solid 1px black;
+    margin: 1%;
+}
+.asaid{
+    width: 20%;
+    height: 60%;
+}
+.word-list{
+    border: solid 2px black;
+    width: 90%;
+    margin-right: 10%;
+}
+/*search*/
+.search-body{
+    display: flex;
+}
+.pic{
+    width: 25%;
+    height: 30%;
+}
+.box-2{
+    width: 80%;
+    height: 70%;
+    border: solid 1px black;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box-3{
+    width: 80%;
+    height: 25%;
+    border: solid 1px black;
+    margin-left: auto;
+    margin-right: auto;
+}
+.left,.right{
+    width: 10%;
+    margin-top: 15%;
+    margin-left: 5%;
+}
+.back,.advance{
+    width: auto;
+    height: auto;
+    font-size: 25px;
+}
+/*brosing*/
+.edit-container{
+    display: flex;
+    margin: 5%;
+}
+.browsing-container,.information{
+    width: 45%;
+    height: 350px;
+    border: solid 1px black;
+    padding-top: 5%;
+}
+.browsing-container{
+    margin-left: 3%;
+}
+.view{
+    width: 90%;
+    height: 80%;
+    border: solid 1px black;
+    margin: auto;
+}
+.username,.title,.comment,.totalpost,.likesnumber{
+    width: 80%;
+    border-bottom: solid 1px black;
+    margin-top: 1%;
+    margin-left: 3%;
+}
+/*user_page*/
+.user-date{
+    display: flex;
+    width: 60%;
+    margin-left: 2%;
+    height: 15%;
+}
+.icon{
+    height: 80px;
+    width: 80px;
+    margin-top: 2%;
+    border-radius: 50%;
+    border: solid 1px black;
+    margin-right: 2%;
+}
+.word-date{
+    width: 45%;
+    margin-top: 1%;
+}
+.yourself{
+    display: flex;
+}
+.edit, .post-transition{
+    margin-top: auto;
+    margin-bottom:auto ;
+    margin-right: 20%;
+}
+.post-list{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.list{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px black;
+    padding-left: 8%;
+    background-color: cornsilk;
+    border-bottom-left-radius: 15%;
+    border-top-right-radius: 15%;
+}
+.post-date{
+    width: 45%;
+    height: 24%;
+    display: flex;
+    margin-top: 2%;
+}
+.box-4{
+    width: 40%;
+    height: 95%;
+    border: solid 1px black;
+}
+.info{
+    width: 39%;
+    height: 95%;
+}
+.date{
+    height: 32.5%;
+    border: solid 1px black;
+}
+.page{
+    width: 100%;
+    text-align:center;
+    padding-top: 1%;
+    font-size: large;
+}
+.yourbutton{
+    margin-right: 7%;
+    margin-left: 3%;
+}
+.post-edit, .delete{
+    margin-top: 6%;
+}
+/*userdate delete*/
+.message{
+    margin: auto;
+    margin-top: 10%;
+}

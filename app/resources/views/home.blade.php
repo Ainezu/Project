@@ -1,14 +1,35 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Share-album</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    </head>
+    @include('header')
     <body>
-        <div>
-            <p>こんにちは</p>
+        <div class='search'>
+            <form class='search-form' action="{{ route('indication.search') }}" method="get">
+                @csrf
+                <input type='text' class='search-word' name='word'/>
+                <button type='submit' class='btn btn-primary'>検索</button>
+            </form> 
         </div>
+        <div class='main-view'> 
+            <div class='main'>
+                <div class='main-container'>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                    <div class='box-1'></div>
+                </div>
+            </div>
+            <div class='asaid'>
+                <div class='word-list'>
+                    <p>検索ワード</p>
+                </div>
+            </div>
+        </div><!--class:body-->
     </body>
 </html>
+</div>
