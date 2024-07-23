@@ -1,0 +1,345 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+#id{
+  max-width: 1200px;
+}
+html{
+  height: 100%;
+}
+/*--共通部分：ヘッダー--*/
+.header{
+  background-color: lightslategray;
+  display: flex;
+  width: 100%;
+}
+.img {
+  margin: 1.5%;
+}
+.my-navbar-control{
+  width: 15%;
+  margin-left: 75%;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/*login*/
+.login{
+  max-width: 1200px;
+  margin: auto;  
+}
+.text-center{
+  padding-top: 5%;
+}
+.view-text{
+  margin-top: 2%;
+}
+/*register*/
+.input-name{
+  width: 10%;
+}
+/*--home--*/
+.search {
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.search-form{
+  display: flex;
+}
+.post-formbtn{
+  margin-left: 1.5%;
+}
+.search-word{
+  margin-right: 2%;
+}
+.main-view{
+  display: flex;
+  height: 70%;
+}
+.main-pic{
+  width: 60%;
+  height: 60%;
+}
+.main{
+  width: 70%;
+  height: 65%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  border-bottom-right-radius: 10%;
+  margin-left: 3%;
+  height: 90%;
+}
+.box-1{
+  width: 70%;
+  height: 65%;
+  border: solid 1px black;
+  margin: 1%;
+}
+.asaid{
+  width: 20%;
+  height: 60%;
+}
+.word-list{
+  border: solid 2px black;
+  width: 90%;
+  margin-right: 10%;
+}
+/*search*/
+.search-body{
+  height: 90%;
+  width: 100%;
+  display: flex;
+}
+.serch-container{
+  width: 70%;
+  height: 90%;
+  display: flex;
+  align-content: stretch;
+}
+.pic{
+  margin-right: 2%;
+  margin-bottom: 2%;
+  width: 100%;
+  height: 40%;
+}
+.box-2{
+  width: 400px;
+  height: auto;
+}
+.box-3{
+  width: 400px;
+}
+.search_view{
+  width: 100%;
+  height: auto;
+}
+.left,.right{
+  width: 10%;
+  margin-top: 15%;
+  margin-left: 5%;
+}
+.back,.advance{
+  width: auto;
+  height: auto;
+  font-size: 25px;
+}
+/*post*/
+.error_message{
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+td{
+  padding: 1%;
+}
+.subject{
+  width: 20%;
+}
+.right-subject{
+  width: 100%;
+}
+.report{
+  width: 100%;
+  margin-top: 1.5%;
+}
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+.radio-button{
+  display: block
+}
+.post-comment{
+  width: 100%;
+  height: 10rem;
+}
+.post-submit{
+  width: 100%;
+  margin-top: 1.5%;
+}
+.post-info{
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*brosing*/
+#unlike{
+  color: pink;
+}
+.edit-container{
+  display: flex;
+  margin: 5%;
+}
+.information{
+  width: 45%;
+  height: 350px;
+  border: solid 1px black;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.browsing-container{
+  margin-left: 3%;
+  width: 40%;
+}
+.favorite-container{
+  height: 8%;
+  text-align: right;
+  margin-right: 10%;
+  margin-top: 3%;
+}
+.information{
+  padding-top: 5%;
+}
+.view{
+  width: 75%;
+  height: 75%;
+  border: solid 1px black;
+  margin-left: 5%;
+}
+.username,.title,.totalpost,.likesnumber{
+  width: 80%;
+  border-bottom: solid 1px black;
+  margin-top: 1%;
+  margin-left: 3%;
+}
+.comment{
+  width: 80%;
+  margin-top: 1%;
+  margin-left: 3%;
+}
+.view-comment{
+  width: 80%;
+  height: 30%;
+  border: solid 1px black;
+  margin-left: 3%;
+  padding-left: 1%;
+  padding-top: 1%;
+}
+/*user_page*/
+.user-date{
+  display: flex;
+  width: 60%;
+  margin-left: 2%;
+  height: 15%;
+}
+.icon{
+  height: 80px;
+  width: 80px;
+  margin-top: 2%;
+  border-radius: 50%;
+  border: solid 1px black;
+  margin-right: 2%;
+}
+.word-date{
+  width: 45%;
+  margin-top: 1%;
+}
+.yourself{
+  display: flex;
+}
+.edit, .post-transition{
+  margin-top: auto;
+  margin-bottom:auto ;
+  margin-right: 20%;
+}
+.post-list{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.list{
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 8%;
+  padding-top: 3%;
+}
+.post-date{
+  width: 45%;
+  height: 24%;
+  display: flex;
+  margin-top: 2%;
+}
+.box-4{
+  width: 40%;
+  height: 95%;
+  border: solid 1px black;
+}
+.all-pic{
+  width: 100%;
+  height: auto;
+} 
+.date{
+  border: solid 1px black;
+}
+.page{
+  width: 100%;
+  text-align:center;
+  padding-top: 1%;
+  font-size: large;
+}
+.yourbutton{
+  margin-right: 7%;
+  margin-left: 3%;
+}
+.post-edit, .delete{
+  margin-top: 6%;
+}
+/*userdate delete*/
+.message{
+  margin: auto;
+  margin-top: 10%;
+}
+
+.page{
+  width: 100%;
+  text-align:center;
+  padding-top: 1%;
+  font-size: large;
+}
+.yourbutton{
+  margin-right: 7%;
+  margin-left: 3%;
+}
+.post-edit, .delete{
+  margin-top: 6%;
+}
+/*userdate delete*/
+.message{
+  margin: auto;
+  margin-top: 10%;
+}
+
+.page{
+  width: 100%;
+  text-align:center;
+  padding-top: 1%;
+  font-size: large;
+}
+.yourbutton{
+  margin-right: 7%;
+  margin-left: 3%;
+}
+.post-edit, .delete{
+  margin-top: 6%;
+}
+/*userdate delete*/
+.message{
+  margin: auto;
+  margin-top: 10%;
+}

@@ -10,60 +10,23 @@
         <div class='left'>
             <a class='back'>⇐</a>
         </div>
-        <div class='main'>
-            <div class='main-container'>
-                <div class='pic'>
-                    <div class='box-2'>
-                        <a href="{{ route('browsing.detail') }}">Photo image</a>
-                    </div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
-                <div class='pic'>
-                    <div class='box-2'></div>
-                    <div class='box-3'></div>
-                </div>
+            <div class='serch-container'>
+                @foreach($research as $researchs)
+                <table class='pic'>                    
+                    <tr>
+                        <td class='box-2'>
+                            <img class="search_view" src="{{ asset('storage/'.$researchs['image']) }}" alt="Photo">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='box-3'>
+                            <a href="{{ route('browsing.detail',['id' => $researchs['id']]) }}">{{ $researchs['title'] }}</a>
+                        </td>
+                    </tr>
+                </table>
+                @endforeach
+
             </div>
-        </div>
         <div class='right'>
             <a class='advance'>⇒</a>
         </div>

@@ -11,7 +11,7 @@
             <form action="{{ route('password.email') }}" method="POST">
               @csrf
               <div class="view-text">
-                <label for="email">メールアドレス</label>
+                <label class="input-name" for="email">メールアドレス</label>
                 <input type="text" id="email" name="email" />
               </div>
               <div class="view-text">

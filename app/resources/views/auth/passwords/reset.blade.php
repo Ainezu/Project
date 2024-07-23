@@ -6,15 +6,15 @@
       <form action="{{ route('password.update') }}" method="POST">
         @csrf
         <div class="view-text">
-          <label for="email">メールアドレス</label>
+          <label class="input-name" for="email">メールアドレス</label>
           <input type="text" id="email" name="email" />
         </div>
         <div class="view-text">
-          <label for="password">新しいパスワード</label>
+          <label class="input-name" for="password">新しいパスワード</label>
           <input type="password" id="password" name="password" />
         </div>
         <div class="view-text">
-          <label for="password-confirm">新しいパスワード（確認）</label>
+          <label class="input-name" for="password-confirm">新しいパスワード（確認）</label>
           <input type="password" id="password-confirm" name="password_confirmation" />
         </div>
         <div class="view-text">

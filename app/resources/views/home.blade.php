@@ -5,31 +5,23 @@
                 @csrf
                 <input type='text' class='search-word' name='word'/>
                 <button type='submit' class='btn btn-primary'>検索</button>
-            </form> 
+            </form>                 
+            @if(Auth::check())
+                <form class='post-formbtn' action="{{ route('postform.edit') }}" method="get">
+                    <button type='submit' class='btn btn-success' >投稿</button>
+                </form>
+            @endif
         </div>
         <div class='main-view'> 
-            <div class='main'>
-                <div class='main-container'>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                    <div class='box-1'></div>
-                </div>
+            <div class='main-pic'>
+                <img class='main' src="{{ asset('img/DSC_0265.JPG') }}" alt="花筏">
             </div>
             <div class='asaid'>
                 <div class='word-list'>
                     <p>検索ワード</p>
                 </div>
             </div>
-        </div><!--class:body-->
+        </div><!--class:main-view-->
     </body>
 </html>
 </div>

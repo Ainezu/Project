@@ -10,12 +10,15 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/_ajaxlike.js') }}" defer></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" crossorigin="anonymous">
         
     <!-- Styles CSSはpublicのcssファイルで指定-->
+    <link href="{{ asset('css/mainapp.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <div id='all'>

@@ -79,4 +79,9 @@ class Kernel extends HttpKernel
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Illuminate\Auth\Middleware\Authorize::class,
     ];
+
+    protected $middlewareAliases = [
+        
+        'admin' => \App\Http\Middleware\AdminAllowMiddleware::class,
+    ];
 }

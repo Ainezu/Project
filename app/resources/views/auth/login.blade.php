@@ -13,11 +13,11 @@
         <form action="{{ route('login') }}" method="POST">
           @csrf
           <div class="view-text">
-            <label for="email">メールアドレス</label>
+            <label class="input-name" for="email">メールアドレス</label>
             <input type="text" id="email" name="email" value="{{ old('email') }}" />
           </div>
           <div class="view-text">
-            <label for="password">パスワード</label>
+            <label class="input-name" for="password">パスワード</label>
             <input type="password" id="password" name="password" />
           </div>
           <div class="view-text">
