@@ -28,7 +28,7 @@ class favoriteController extends Controller
                 ->where('user_id', "=", auth()->user()->id)
                 ->delete();
         }
-
+        return  $request->input('like_product');
     }
 
     //Log::debug('like_product');

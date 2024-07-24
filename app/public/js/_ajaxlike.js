@@ -17,22 +17,29 @@ $(function () {
             },
             url: url,  //route.phpで指定したコントローラーのメソッドURLを指定
             type: 'POST',   //GETかPOSTメソットを選択
-            data: { 'text_id': text_id, 'like_product': like_product, }, //コントローラーに送るに名称をつけてデータを指定
+            data: { 'text_id': text_id, 'like_product': like_product, }, 
+            //コントローラーに送るに名称をつけてデータを指定
         })   
         
         //正常にコントローラーの処理が完了した場合
         .done(function (data)
         //コントローラーからのリターンされた値をdataとして指定
         {             
-            if( date == 0)
+            if( like_product == 0)
             {
                 //クリックしたタグのステータスを変更
-                click_button.attr("like_product", "1");
+                click_button.attr({
+                    "like_product":"1",
+                    "value":"お気に入りから外す",
+                });
             }
-            if ( data == 1 )
+            if ( like_product == 1 )
             {
                 //クリックしたタグのステータスを変更
-                click_button.attr("like_product", "0");
+                click_button.attr({
+                    "like_product":"0",
+                    "value":"お気に入り",
+                });
             }
         })
         ////正常に処理が完了しなかった場合

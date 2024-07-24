@@ -175,9 +175,6 @@ table{
   margin-right: auto;
 }
 /*brosing*/
-#unlike{
-  color: pink;
-}
 .edit-container{
   display: flex;
   margin: 5%;
@@ -196,8 +193,9 @@ table{
 .favorite-container{
   height: 8%;
   text-align: right;
-  margin-right: 10%;
-  margin-top: 3%;
+  margin-right: 20%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 .information{
   padding-top: 5%;
@@ -342,4 +340,10 @@ table{
 .message{
   margin: auto;
   margin-top: 10%;
+}
+
+/*admin*/
+.post-search{
+  margin-left: 2%;
+  margin-right: 2%;
 }

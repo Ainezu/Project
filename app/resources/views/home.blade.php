@@ -10,6 +10,11 @@
                 <form class='post-formbtn' action="{{ route('postform.edit') }}" method="get">
                     <button type='submit' class='btn btn-success' >投稿</button>
                 </form>
+                @if(Auth::user()->role == 'admin')
+                    <form class='post-formbtn' action="{{ route('admin.form') }}" method="get">
+                        <button type='submit' class='btn btn-secondary' >管理者用</button>
+                    </form>    
+                @endif
             @endif
         </div>
         <div class='main-view'> 

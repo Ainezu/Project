@@ -1,8 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\admin;
 use App\Http\Controllers\firstController;
 use App\Http\Controllers\secondController;
 use App\Http\Controllers\favoriteController;
+use App\Http\Controllers\adminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +48,8 @@ Route::group(['middleware' => 'auth'], function(){
 
 //管理者のみアクセス可能
 Route::group(['middlewareAliases' => 'admin'],function(){
-
+    //検索フォーム表示
+    Route::get('/admin',[adminController::class,'adminform'])->name('admin.form');
+    //検索結果表示
+    Route::post('/admin',[adminController::class,'adminresult'])->name('admin.result');
 });

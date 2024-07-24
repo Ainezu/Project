@@ -7,16 +7,14 @@
     <div class='browsing-container'>
         <!--いいね処理-->
         <div class='favorite-container'>
-                @if($like_product == 0)
-                    <a class="like_button" name="favolite" text_id="{{ $result['id'] }}" like_product="0">
-                        お気に入り
-                        <i class="fas fa-heart fa-lg like-toggle"></i>
-                    </a>
+                @if($like_product == 0) 
+                    <input type="button" class="like_button" name="favolite" text_id="{{ $result['id'] }}" like_product="0"
+                        value="お気に入り">
+                    </input>
                 @else
-                    <a class="like_button" name="favolite" text_id="{{ $result['id'] }}" like_product="1">
-                        お気に入りから外す
-                        <i class="fas fa-heart fa-lg like-toggle"></i>
-                    </a>
+                    <input type="button" class="like_button" id="unlike" name="favolite" text_id="{{ $result['id'] }}" like_product="1"
+                        value="お気に入りから外す">
+                    </input>
                 @endif
         </div>     
         <img class='view' src="{{ asset('storage/' . $result['image']) }}">

@@ -7,9 +7,6 @@
         </form> 
     </div>
     <div class='search-body'>
-        <div class='left'>
-            <a class='back'>⇐</a>
-        </div>
             <div class='serch-container'>
                 @foreach($research as $researchs)
                 <table class='pic'>                    
@@ -27,7 +24,4 @@
                 @endforeach
 
             </div>
-        <div class='right'>
-            <a class='advance'>⇒</a>
-        </div>
     </div>
