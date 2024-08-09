@@ -16,51 +16,54 @@
         </div>        
     </div>
     <div class='yourself'>
-        <div class='edit'>
-            <button type="button" class="btn btn-info">ユーザー情報編集</button>
+        <div class='editbtn'>
+            <form class ='date-editbtn' action="{{ route('date.edit', ['id' => $user_date['id'] ]) }}" method="get">
+            @csrf
+                <button type="submit" class="btn btn-info">ユーザー編集</button>
+            </form>    
         </div>
-        <div class='post-transition'>
-            <button type="button" class="btn btn-success">投稿</button>
+        <div class='deletebtn'>
+            <form class = 'date-delete' action="{{ route('date.delete', ['id' => $user_date['id'] ]) }}" method="get">
+                <button type="submit" class="btn btn-warning">ユーザー削除</button>
+            </form>
+        </div>
+
+        <div class='post-transitionbtn'>
+            <form class='post-formbtn' action="{{ route('postform.edit') }}" method="get">
+            @csrf          
+                <button type='submit' class="btn btn-success">投稿</button>
+            </form>
         </div>
     </div>
 </div>
 <div class='post-list'>
-    <div class='left'>
-        <button type='button' class='back'>←</button>
-    </div>
     <div class='list'>
         <div class="post-date">
-        <div class='serch-container'>
-            @foreach($text_date as $text_dates)
-            <table class='pic'>                    
-                <tr>
-                    <td class='box-4' rowspan="3">
-                        <img src="{{ asset('storage/'.$text_dates['image']) }}" alt="Photo">
-                    </td>
-                    <td class='date'>{{ $text_dates['title'] }}</td>
-                </tr>
-                <tr>
-                    <td class='date'>{{ $text_dates['created_at'] }}</td>
-                </tr>
-                <tr>
-                    <td class='date'>{{ $text_dates['open'] }}</td>
-                </tr>
-            </table>
-            @endforeach
+            <div class='serch-container'>
+                @foreach($text_date as $text_dates)
+                <table class='user_pic'>                    
+                    <tr class='user_tr'>
+                        <td class='box-4' rowspan="3">
+                            <img class='all-pic' src="{{ asset('storage/'.$text_dates['image']) }}" alt="Photo">
+                        </td>
+                        <td class='date'>
+                            <a href ="{{ route('browsing.detail',['id' => $text_dates['id']]) }}">{{ $text_dates['title'] }}</a>
+                        </td>
+                    </tr>
+                    <tr class='user_tr'>
+                        <td class='date'>{{ $text_dates['created_at'] }}</td>
+                    </tr>
+                    <tr class='user_tr'>
+                    @if($text_dates['open'] == 0)
+                        <td class='date'>非公開</td>
+                    @else
+                        <td class='date'>公開</td>
+                    @endif 
+                    </tr>
+                </table>
+                @endforeach
+            </div>
         </div>
-            <form class='yourbutton'>
-                <div class='post-edit'>
-                    <button type="button" class="btn btn-info">編集</button>
-                </div>
-                <div class='delete'>
-                    <button type="button" class="btn btn-warning">削除</button>
-                </div>
-            </form>
-    <div class='right'>
-        <button type='button' class='advance'>→</button>
     </div>
-</div>
-<div class='page'>
-    <a><<ページ数>></a>
 </div>
 

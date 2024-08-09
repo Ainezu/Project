@@ -14,7 +14,7 @@
         <tr>
         <tr>
             <td class="subject">タイトル</td>
-            <td class="right-subject"><input type="text" name="title"><td>
+            <td class="right-subject"><input type="text" name="title" value="{{ old('title') }}"><td>
         </tr>
         <tr>
             <td class="subject">公開情報</td>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
             <td class="subject">コメント</td>
-            <td class="comment-subject"><textarea name="comment" class="post-comment"></textarea></td>
+            <td class="comment-subject"><textarea name="comment" class="post-comment" value="{{ old('comment') }}"></textarea></td>
         </tr>
     </table>
     <div class="post-submit">

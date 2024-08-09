@@ -7,6 +7,7 @@
     <div class='browsing-container'>
         <!--いいね処理-->
         <div class='favorite-container'>
+            @if(Auth::check())
                 @if($like_product == 0) 
                     <input type="button" class="like_button" name="favolite" text_id="{{ $result['id'] }}" like_product="0"
                         value="お気に入り">
@@ -16,6 +17,7 @@
                         value="お気に入りから外す">
                     </input>
                 @endif
+            @endif
         </div>     
         <img class='view' src="{{ asset('storage/' . $result['image']) }}">
     </div>
@@ -35,5 +37,22 @@
         <div class='view-comment'>
             {{ $result['comment'] }}
         </div>
+
+        @if(Auth::id() === $result['user_id'] )
+        <div class='controll'>
+            <div class='editbtn'>
+                <form class ='post-editbtn' action="" method="get">
+                @csrf
+                    <button type="button" class="btn btn-info">編集</button>
+                </form>
+            </div>
+            <div class ='deletebtn'>
+                <form class ='post-editbtn' action="{{ route('post.delete',['id' => $result['id']]) }}" method="get">
+                @csrf
+                    <button type="submit" class="btn btn-warning">削除</button>
+                </form>
+            </div>         
+        </div>
+        @endif
     </div>
 </div>

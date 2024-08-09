@@ -17,14 +17,14 @@
     <div class='list'>
         <div class='post-date'>
             @foreach($text_date as $text_dates)
-            <table class='pic'>                    
-                <tr>
+            <table class='user_pic'>                    
+                <tr class='user_tr'>
                     <td class='box-4' rowspan="2">
                         <img class='all-pic' src="{{ asset('storage/'.$text_dates['image']) }}" alt="Photo">
                     </td>
                     <td class='date'>{{ $text_dates['title'] }}</td>
                 </tr>
-                <tr>
+                <tr class='user_tr'>
                     <td class='date'>{{ $text_dates['created_at'] }}</td>
                 </tr>
             </table>

@@ -28,7 +28,7 @@
         </div>
         <div class="my-navbar-control">
             @if(Auth::check())
-            <span class="my-navbar-item">{{ Auth::user()->name }}</span>
+            <a href="{{ route('mydate.edit',['user_id' => Auth::user()->id]) }}" class="my-navbar-item">{{ Auth::user()->name }}</a>
             /
             <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

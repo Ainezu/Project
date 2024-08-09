@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 //使用するModel
 use App\User;
@@ -17,21 +18,21 @@ class secondController extends Controller
         $word = $request->input('word');
         $text = new Text;
 
-        $research = $text
-                    ->where('open','=','1')
-                    ->get();
-        
-        if(!empty($word)){
-            $reseach = $text
-                   -> where('open','=','1')
-                   -> where('title','LIKE',"%{$word}%")
-                   -> orWhere('comment','LIKE',"%{$word}%")
-                   -> get();
+        if(empty($word)){
+            $search = $text
+                        ->where('open','=','1')
+                        ->get();
+        } else {
+            $search = $text
+                        -> where('open','=','1')
+                        -> where('title','LIKE',"%{$word}%")
+                        -> orWhere('comment','LIKE',"%{$word}%")
+                        -> get();
         }
 
         return view('search', [
             'word' => $word,
-            'research' => $research,
+            'search' => $search,
         ]);
     }
     //投稿ページ表示
@@ -46,10 +47,10 @@ class secondController extends Controller
     public function postdateedit(Request $request){
         $texts = new Text;
         $user_id =  Auth::user()->id;
+        $user_name = Auth::user()->name;
 
         //publicにデータを保存
         $file_name = $request->file('image_file')->getClientOriginalName();
-        $request->file('image_file')->storeAs('' , $file_name);
 
         $text_check = $texts
                         ->where('user_id','=',$user_id)
@@ -62,8 +63,10 @@ class secondController extends Controller
         $texts -> image = $file_name;
         $texts -> open = $request -> open;
         $texts -> user_id = $request -> user_id;
+        $texts -> user_name = $user_name;
         $texts -> comment = $request -> comment;
 
+        $request->file('image_file')->storeAs('public/' , $file_name);
         $texts->save();
          
         return back();
@@ -121,7 +124,7 @@ class secondController extends Controller
     public function mydate(int $user_id){
         $user = new User;
         $text = new Text;
-        $like = new Lile;
+        $like = new Like;
 
         $user_date = $user->find($user_id);
         $text_date = $text
@@ -140,4 +143,5 @@ class secondController extends Controller
             'like_count' => $like_count,
         ]);
     }
+
 }

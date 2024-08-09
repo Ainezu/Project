@@ -12,6 +12,7 @@
                 </form>
                 @if(Auth::user()->role == 'admin')
                     <form class='post-formbtn' action="{{ route('admin.form') }}" method="get">
+                    @csrf
                         <button type='submit' class='btn btn-secondary' >管理者用</button>
                     </form>    
                 @endif

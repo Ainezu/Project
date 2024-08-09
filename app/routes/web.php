@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\admin;
 use App\Http\Controllers\firstController;
 use App\Http\Controllers\secondController;
+use App\Http\Controllers\userController;
 use App\Http\Controllers\favoriteController;
 use App\Http\Controllers\adminController;
 
@@ -40,16 +41,25 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/post',[secondController::class,'postform'])->name('postform.edit');
     //いいね機能
     Route::post('/detail/{id}', [favoriteController::class,'like'])->name('favorite'); 
-    
     //マイページ表示
     Route::get('/mypage/{user_id}',[secondController::class,'mydate'])->name('mydate.edit');
-
+    //ユーザーデータ編集
+    Route::get('edit/{id}', [userController::class,'useredit'])->name('date.edit');
+    Route::post('edit/{id}',[userController::class,'overwrite']);
+    //ユーザー削除
+    Route::get('delete/{id}',[userController::class,'delete'])->name('date.delete');
+    //投稿削除
+    Route::get('post/delete/{id}',[userController::class,'postdelete'])->name('post.delete');
 });
 
 //管理者のみアクセス可能
 Route::group(['middlewareAliases' => 'admin'],function(){
-    //検索フォーム表示
+    //検索選択
     Route::get('/admin',[adminController::class,'adminform'])->name('admin.form');
-    //検索結果表示
-    Route::post('/admin',[adminController::class,'adminresult'])->name('admin.result');
+    //検索フォーム
+    Route::post('/admin/search',[adminController::class,'adminchoice'])->name('admin.choice');
+    //ユーザー検索
+    Route::post('admin/usersearch',[adminController::class,'usersearch'])->name('user.search');
+    //投稿検索
+    Route::post('admin/postsearch',[adminController::class,'postsearch'])->name('post.search');
 });

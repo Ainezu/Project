@@ -38,11 +38,19 @@ class User extends Authenticatable
     ];
 
     public function Text(){
-        return $this->hasMany(Text::class);
+        return $this->hasMany('App\Text');
     }
     //多対多のリレーションを書く
-    public function likes()
+    public function like()
     {
-        return $this->hasMany('App\Models\text','likes','user_id','text_id')->withTimestamps();
+        return $this->hasMany('App\Like');
+        
     }
+
+    //公開中
+    public function open(){
+        return $this -> Text()
+                        ->where('open',1);
+    }
+    
 }

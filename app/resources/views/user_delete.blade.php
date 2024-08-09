@@ -3,5 +3,5 @@
     <p>データを削除しました</p>
 </div>
 <div class="to-your-page">
-    <a href="{{ route('userdate.edit') }}">マイページへ戻る</a>
+    <a href="{{ url('/') }}">トップへ戻る</a>
 </div>
