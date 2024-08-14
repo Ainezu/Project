@@ -169,6 +169,22 @@ table{
   margin-left: auto;
   margin-right: auto;
 }
+/*post-edit*/
+.postedit-container{
+  display: flex;
+  margin: 5%;
+  margin-top: 5%;
+}
+.edit-information{
+  width: 45%;
+  height: 350px;
+  border: solid 1px black;
+  padding-top: 5%;
+}
+.edit_overwrite{
+  text-align: center;
+  margin-top: -8%;
+}
 /*brosing*/
 .edit-container{
   display: flex;
@@ -180,6 +196,7 @@ table{
   border: solid 1px black;
   margin-top: auto;
   margin-bottom: auto;
+  padding-top: 5%;
 }
 .browsing-container{
   margin-left: 3%;
@@ -192,16 +209,13 @@ table{
   margin-top: 2%;
   margin-bottom: 2%;
 }
-.information{
-  padding-top: 5%;
-}
 .view{
   width: 75%;
   height: 75%;
   border: solid 1px black;
   margin-left: 5%;
 }
-.username,.title,.totalpost,.likesnumber{
+.username,.title,.totalpost,.likesnumber,.open-edit{
   width: 80%;
   border-bottom: solid 1px black;
   margin-top: 1%;
@@ -346,7 +360,10 @@ table{
 .change{
   width: 25%;
 }
-
+.post-title{
+  margin-left: 2%;
+  width: 70%;
+}
 /*admin*/
 .admin-serch{
   width: 50%;
@@ -354,15 +371,21 @@ table{
   justify-content: space-around;
 }
 .postth{
-  width: 15%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 18%;
   border: 1px solid black;
   border-collapse: collapse;
+}
+.deletetd{
+  text-align: left;
 }
 .titletr{
   background-color:rgb(101, 151, 13);
 }
 .adminback{
   margin-left: 2%;
+}
+/*errer*/
+.errors_message ,.page-back{
+  margin-top: 5%;
+  text-align: center;
 }

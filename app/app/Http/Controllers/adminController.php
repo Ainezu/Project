@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CreateDate;
 
 //使用するModel
 use App\User;
@@ -15,13 +16,18 @@ class adminController extends Controller
 {
     //管理者用ページの表示
     public function adminform(){
-        
+        $admin =  Auth::user()->role;
+        if(is_null($admin )){
+            return view('error',[
+
+            ]);
+        }
         return view('admin/admin',[      
            
         ]);
     }
     //検索画面選択
-    public function adminchoice(Request $request){
+    public function adminchoice(CreateDate $request){
         
         if($request -> has('user') ){
             return view('admin/admin-usersearch',[
@@ -32,7 +38,7 @@ class adminController extends Controller
         }
     }
     //ユーザー検索
-    public function usersearch(Request $request){
+    public function usersearch(CreateDate $request){
         $user = new User;
         $all_user = $user->get();
         $text = new Text;
@@ -59,10 +65,23 @@ class adminController extends Controller
         return view('admin/admin-usersearch',[
             'search_word'=> $search_word,
             'result' => $result,
-        ]);      
+        ]);    
     }
+    //ユーザー削除
+    public function userdelete(int $id){
+        $user = new User;
+        $user = $user
+                ->find($id)
+                ->delete();
+        $text = new Text;
+        $text = $text
+                ->where('user_id','=',$id)
+                ->delete();
+        
+        return redirect('admin');
+    }  
     //投稿検索
-    public function postsearch(Request $request){
+    public function postsearch(CreateDate $request){
         $text = new Text;
 
         $search_word = $request ->word;//検索ワード→ok
@@ -83,8 +102,14 @@ class adminController extends Controller
             'search_word'=> $search_word,
             'result' => $result,
         ]);       
-    }
-
-    //戻る
-    
+    } 
+    //投稿削除
+    public function postdelete(int $id){
+        $text = new Text;
+        $text = $text
+                    ->find($id)
+                    ->delete();
+        
+        return redirect('admin');
+    }   
 }

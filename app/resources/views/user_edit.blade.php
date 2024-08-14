@@ -26,6 +26,10 @@
             <button type="submit" class="btn btn-primary">変更する</button>
           </div>
         </form>
+
+        <div class="view-text">
+        <a href="{{ route('password.request') }}">パスワードの変更はこちらから</a>
+      </div>
       </div>
   </div>
 </div>

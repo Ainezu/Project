@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\CreateDate;
 
 use App\Text;
 use App\Like;
@@ -14,7 +15,7 @@ use App\User;
 class favoriteController extends Controller
 {
     //お気に入り
-    public function like(Request $request){
+    public function like(CreateDate $request){
 
         if ( $request->input('like_product') == 0) {
             //ステータスが0のときはデータベースに情報を保存

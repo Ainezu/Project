@@ -7,6 +7,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\favoriteController;
 use App\Http\Controllers\adminController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +51,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('delete/{id}',[userController::class,'delete'])->name('date.delete');
     //投稿削除
     Route::get('post/delete/{id}',[userController::class,'postdelete'])->name('post.delete');
+    //投稿内容編集
+    Route::get('post/edit/{id}',[userController::class,'postedit'])->name('post.edit');
+    Route::post('post/edit/{id}',[userController::class,'posteditwrite']);
 });
 
 //管理者のみアクセス可能
@@ -60,6 +64,10 @@ Route::group(['middlewareAliases' => 'admin'],function(){
     Route::post('/admin/search',[adminController::class,'adminchoice'])->name('admin.choice');
     //ユーザー検索
     Route::post('admin/usersearch',[adminController::class,'usersearch'])->name('user.search');
+    //ユーザー削除
+    Route::get('admin/usersearch/{id}',[adminController::class,'userdelete'])->name('user.delete');
     //投稿検索
     Route::post('admin/postsearch',[adminController::class,'postsearch'])->name('post.search');
+    //投稿削除
+    Route::get('admin/postsearch/{id}',[adminController::class,'postdelete'])->name('post.delete');
 });

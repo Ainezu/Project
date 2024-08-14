@@ -13,9 +13,9 @@
                 <input type='text' class='search-word' name='word' value="{{ $search_word }}"/>
             @endif
             <button type='submit' class='btn btn-primary'>検索</button>
-    <div class='adminback'>
-        <button type='button' class='back' onclick="{{ url('/') }}">戻る</button>
-    </div>
+        <div class='adminback'>
+            <button type='button' class='back' onclick="location.href='{{ url('/admin') }}'">戻る</button>
+        </div>
         </form>
     @if(isset($result))
         <h2>検索結果</h2>
@@ -30,11 +30,17 @@
 
             @foreach($result as $results)
             <tr>
-                <th class="postth">{{ $results['id'] }}</th>
-                <th class="postth">{{ $results['name'] }}</th>
-                <th class="postth">{{ $results['text_count'] }}</th>
-                <th class="postth">{{ $results['open_count'] }}</th>
-                <th class="postth">{{ $results['like_count'] }}</th> 
+                <td class="postth">{{ $results['id'] }}</td>
+                <td class="postth">{{ $results['name'] }}</td>
+                <td class="postth">{{ $results['text_count'] }}</td>
+                <td class="postth">{{ $results['open_count'] }}</td>
+                <td class="postth">{{ $results['like_count'] }}</td>
+                <td class="deletetd">
+                    <form action="{{ route('user.delete', ['id'=>$results['id']]) }}" method="get">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">削除</button>
+                    </form>
+                </td>
             </tr>
             @endforeach 
         </table>

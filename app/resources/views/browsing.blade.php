@@ -41,13 +41,13 @@
         @if(Auth::id() === $result['user_id'] )
         <div class='controll'>
             <div class='editbtn'>
-                <form class ='post-editbtn' action="" method="get">
+                <form class ='post-editbtn' action="{{ route('post.edit',['id' => $result['id']]) }}" method="get">
                 @csrf
-                    <button type="button" class="btn btn-info">編集</button>
+                    <button type="submit" class="btn btn-info">編集</button>
                 </form>
             </div>
             <div class ='deletebtn'>
-                <form class ='post-editbtn' action="{{ route('post.delete',['id' => $result['id']]) }}" method="get">
+                <form class ='post-deletebtn' action="{{ route('post.delete',['id' => $result['id']]) }}" method="get">
                 @csrf
                     <button type="submit" class="btn btn-warning">削除</button>
                 </form>

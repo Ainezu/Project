@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CreateDate;
 
 //使用するModel
 use App\User;
@@ -14,7 +15,7 @@ use App\Like;
 class secondController extends Controller
 {
     //検索ボタン->search.blade表示
-    public function indication(Request $request){
+    public function indication(CreateDate $request){
         $word = $request->input('word');
         $text = new Text;
 
@@ -44,36 +45,53 @@ class secondController extends Controller
         ]);
     }
     //投稿登録
-    public function postdateedit(Request $request){
+    public function postdateedit(CreateDate $request){
         $texts = new Text;
         $user_id =  Auth::user()->id;
         $user_name = Auth::user()->name;
 
-        //publicにデータを保存
-        $file_name = $request->file('image_file')->getClientOriginalName();
-
-        $text_check = $texts
-                        ->where('user_id','=',$user_id)
-                        ->where('image','=',$file_name)
-                        ->get();
-        $text_count = count($text_check);
-
-        if($text_count == '0'){            
-        $texts -> title = $request -> title;
-        $texts -> image = $file_name;
-        $texts -> open = $request -> open;
-        $texts -> user_id = $request -> user_id;
-        $texts -> user_name = $user_name;
-        $texts -> comment = $request -> comment;
-
-        $request->file('image_file')->storeAs('public/' , $file_name);
-        $texts->save();
-         
-        return back();
+        if(empty($request -> title)){
+            $titleerror = "タイトルは必須項目です。";
         } else {
+            $titleerror = "";
+        }
+        //publicにデータを保存
+        if(empty($request->file('image_file'))){
+            $imgerror = "画像は必須項目です。";
+        } else {
+            $file_name = $request->file('image_file')->getClientOriginalName();
+            $imgerror = "";
+        }
+        if(!empty($imgerror) || !empty($titleerror)){
+            back()->with([
+                        'imgerror' => $imgerror,
+                        'titleerror' => $titleerror,
+                        ]);
+        } else {
+            $text_check = $texts
+            ->where('user_id','=',$user_id)
+            ->where('image','=',$file_name)
+            ->get();
+
+            $text_count = count($text_check);
+
+            if($text_count == '0'){            
+            $texts -> title = $request -> title;
+            $texts -> image = $file_name;
+            $texts -> open = $request -> open;
+            $texts -> user_id = $request -> user_id;
+            $texts -> user_name = $user_name;
+            $texts -> comment = $request -> comment;
+
+            $request->file('image_file')->storeAs('public/' , $file_name);
+            $texts->save();
+
+            return back();
+            } else {
             session()->flash('message', 'すでに登録されている画像です。');
             return back();
-        } 
+            } 
+        }
     }
     //詳細ページ表示
     public function browsing(int $id){
@@ -82,6 +100,12 @@ class secondController extends Controller
         $like = new Like;
 
         $result = $text->find($id);
+        if(is_null($result)){
+            return view('error',[
+
+            ]);
+        }
+
         $user_id = $result['user_id'];
         $text_id = $result['id'];
 
@@ -94,6 +118,7 @@ class secondController extends Controller
                 ->get();
 
         $like_product = count($like);
+
 
         return view('browsing',[
             'result' => $result,
@@ -108,6 +133,11 @@ class secondController extends Controller
         $text = new Text;
 
         $user_date = $user->find($user_id);
+        if(is_null($user_date)){
+            return view('error',[
+
+            ]);
+        }
         $text_date = $text
                     ->where('user_id','=',$user_id)
                     ->where('open','=','1')
