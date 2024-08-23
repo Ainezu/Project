@@ -63,7 +63,7 @@ class secondController extends Controller
             $imgerror = "";
         }
         if(!empty($imgerror) || !empty($titleerror)){
-            back()->with([
+            return back()->with([
                         'imgerror' => $imgerror,
                         'titleerror' => $titleerror,
                         ]);
@@ -80,7 +80,6 @@ class secondController extends Controller
             $texts -> image = $file_name;
             $texts -> open = $request -> open;
             $texts -> user_id = $request -> user_id;
-            $texts -> user_name = $user_name;
             $texts -> comment = $request -> comment;
 
             $request->file('image_file')->storeAs('public/' , $file_name);

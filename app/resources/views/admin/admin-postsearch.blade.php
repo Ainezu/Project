@@ -31,7 +31,7 @@
             @foreach($result as $results)
             <tr>
                 <td class="postth">{{ $results['id'] }}</td>
-                <td class="postth">{{ $results['user_name'] }}</td>
+                <td class="postth">{{ $results['name'] }}</td>
                 <td class="postth">{{ $results['title'] }}</td> 
                 <td class="postth">{{ $results['created_at']->format('Y/m/d') }}</td>
                 @if($results['open'] == 0)

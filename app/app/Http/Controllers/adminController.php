@@ -87,14 +87,16 @@ class adminController extends Controller
         $search_word = $request ->word;//検索ワード→ok
         if(empty($search_word)){//検索ワードが空の時
             $result = $text
-                        ->select('id','user_name','title','created_at','open')
+                        ->select('texts.id','users.name','texts.title','texts.created_at','texts.open')
+                        ->join('users','texts.user_id','=','users.id')
                         ->get();
         } else{
             $result = $text
-                        ->select('id','user_name','title','created_at','open')
-                        ->where('title','LIKE',"%{$search_word}%")
-                        ->orWhere('comment','LIKE',"%{$search_word}%")
-                        ->orWhere('user_name','LIKE',"%{$search_word}%")
+                        ->select('texts.id','users.name','texts.title','texts.created_at','texts.open')
+                        ->join('users','texts.user_id','=','users.id')
+                        ->where('texts.title','LIKE',"%{$search_word}%")
+                        ->orWhere('texts.comment','LIKE',"%{$search_word}%")
+                        ->orWhere('users.name','LIKE',"%{$search_word}%")
                         ->get();
         }
   
